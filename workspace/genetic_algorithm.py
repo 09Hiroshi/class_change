@@ -7,21 +7,98 @@ import my_function
 #目的関数値が何世代変化していないか
 unchanging_count = 0
 
+#性別カウンター
+def gender_counter(list_studens):
+    count_mens = 0
+    count_womens = 0
+    
+    for i in range(len(list_studens)):
+        if list_studens[i]['gender'] == 1:
+            count_mens += 1
+        elif list_studens[i]['gender'] == 0:
+            count_womens += 1
+        else:
+            print('ERROR')
+
+    return count_mens, count_womens
+
+#男女数を均等に各クラスへ振り分ける
+def put_students():
+    count_mens, count_womens = gender_counter(students_info.list_students)
+
+    #各クラスの男子数
+    mensOneSet = int(count_mens / py_setting.classes)
+    #残りの男子
+    remaining_mens = count_mens - (mensOneSet * py_setting.classes)
+
+    #生徒のリストから男子だけを抽出
+    count_students = 0
+    #(int(男子数/クラス数)+1)人のクラスに男子を代入
+    for i in range(remaining_mens):
+        for _ in range(mensOneSet+1):
+            if students_info.list_students[count_students]['gender'] == 1:
+                py_setting.list_classes[i].append(students_info.list_students[count_students])
+                count_students += 1
+            else:
+                while True :
+                    count_students += 1
+                    if students_info.list_students[count_students]['gender'] == 1:
+                        py_setting.list_classes[i].append(students_info.list_students[count_students])
+                        count_students += 1
+                        break
+    
+    #(int(男子数/クラス数))人のクラスに男子を代入
+    for i in range(remaining_mens, py_setting.classes):
+        for _ in range(mensOneSet):
+            if students_info.list_students[count_students]['gender'] == 1:
+                py_setting.list_classes[i].append(students_info.list_students[count_students])
+                count_students += 1
+            else:
+                while True :
+                    count_students += 1
+                    if students_info.list_students[count_students]['gender'] == 1:
+                        py_setting.list_classes[i].append(students_info.list_students[count_students])
+                        count_students += 1
+                        break
+
+    #各クラスの女子数
+    womensOneSet = int(count_womens / py_setting.classes)
+    #残りの女子
+    remaining_womens = count_womens - (womensOneSet * py_setting.classes)
+
+    #生徒のリストから女子だけを抽出
+    count_students = 0
+    #(int(女子数/クラス数)+1)人のクラスに女子を代入
+    for i in range(remaining_womens):
+        for _ in range(womensOneSet+1):
+            if students_info.list_students[count_students]['gender'] == 0:
+                py_setting.list_classes[i].append(students_info.list_students[count_students])
+                count_students += 1
+            else:
+                while True :
+                    count_students += 1
+                    if students_info.list_students[count_students]['gender'] == 0:
+                        py_setting.list_classes[i].append(students_info.list_students[count_students])
+                        count_students += 1
+                        break
+
+    #(int(女子数/クラス数))人のクラスに女子を代入
+    for i in range(remaining_womens, py_setting.classes):
+        for _ in range(womensOneSet):
+            if students_info.list_students[count_students]['gender'] == 0:
+                py_setting.list_classes[i].append(students_info.list_students[count_students])
+                count_students += 1
+            else:
+                while True :
+                    count_students += 1
+                    if students_info.list_students[count_students]['gender'] == 0:
+                        py_setting.list_classes[i].append(students_info.list_students[count_students])
+                        count_students += 1
+                        break
 
 #初期世代の生成
 def generate():
-    count_students = 0
-    studentsOneSet = int(py_setting.students / py_setting.classes) #各クラスの生徒数
-    remaining_students = py_setting.students - (studentsOneSet * py_setting.classes) #残りの生徒
-
-    for i in range(py_setting.classes): #クラス数だけ繰り返す
-        for _ in range(studentsOneSet): #各クラスの生徒数だけ繰り返す
-            py_setting.list_classes[i].append(students_info.list_students[count_students])
-            count_students += 1
-
-    for i in range(remaining_students): #残りの生徒数だけ繰り返す
-            py_setting.list_classes[i].append(students_info.list_students[count_students])
-            count_students += 1
+    put_students()
 
 
 #個体の評価

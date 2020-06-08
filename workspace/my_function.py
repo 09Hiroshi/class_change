@@ -42,46 +42,34 @@ def view_class():
         class_number = i + 1
         print('-' + str(class_number) + '組-')
 
-        count = 0
+        count_deviation_value = 0
+        count_physical_point = 0
         men_count = 0
         wemen_count = 0
 
         for j in range(len(py_setting.best_individuals[i])):
-            count += py_setting.best_individuals[i][j]['deviation_value']
-            
-            if j != len(py_setting.best_individuals[i]) - 1:
-                if py_setting.best_individuals[i][j]['gender'] == 0:
-                    wemen_count += 1
-                elif py_setting.best_individuals[i][j]['gender'] == 1:
-                    men_count += 1
-                else:
-                    print('ERROR')
-                
-                print('学籍番号：' + str(py_setting.best_individuals[i][j]['students_number']), end=' ')
-                print('性別：' + gender_check(py_setting.best_individuals[i][j]['gender']), end=' ')
-                print('国語：' + str(py_setting.best_individuals[i][j]['japanese']), end=' ')
-                print('社会：' + str(py_setting.best_individuals[i][j]['society']), end=' ')
-                print('数学：' + str(py_setting.best_individuals[i][j]['mathematics']), end=' ')
-                print('理科：' + str(py_setting.best_individuals[i][j]['science']), end=' ')
-                print('英語：' + str(py_setting.best_individuals[i][j]['english']), end=' ')
-                print('偏差値：' + str(py_setting.best_individuals[i][j]['deviation_value']))
+            count_deviation_value += py_setting.best_individuals[i][j]['deviation_value']
+            count_physical_point += py_setting.best_individuals[i][j]['physical_point']
 
+            if py_setting.best_individuals[i][j]['gender'] == 0:
+                wemen_count += 1
+            elif py_setting.best_individuals[i][j]['gender'] == 1:
+                men_count += 1
             else:
-                if py_setting.best_individuals[i][j]['gender'] == 0:
-                    wemen_count += 1
-                elif py_setting.best_individuals[i][j]['gender'] == 1:
-                    men_count += 1
-                else:
-                    print('ERROR')
+                print('ERROR')
+            
+            print('学籍番号：' + str(py_setting.best_individuals[i][j]['students_number']), end=' , ')
+            print('性別：' + gender_check(py_setting.best_individuals[i][j]['gender']), end=' , ')
+            print('国語：' + str(py_setting.best_individuals[i][j]['japanese']), end=' , ')
+            print('社会：' + str(py_setting.best_individuals[i][j]['society']), end=' , ')
+            print('数学：' + str(py_setting.best_individuals[i][j]['mathematics']), end=' , ')
+            print('理科：' + str(py_setting.best_individuals[i][j]['science']), end=' , ')
+            print('英語：' + str(py_setting.best_individuals[i][j]['english']), end=' , ')
+            print('偏差値：' + str(py_setting.best_individuals[i][j]['deviation_value']), end=' , ')
+            print('体力テスト：' + str(py_setting.best_individuals[i][j]['physical_point']))
 
-                print('学籍番号：' + str(py_setting.best_individuals[i][j]['students_number']), end=' ')
-                print('性別：' + gender_check(py_setting.best_individuals[i][j]['gender']), end=' ')
-                print('国語：' + str(py_setting.best_individuals[i][j]['japanese']), end=' ')
-                print('社会：' + str(py_setting.best_individuals[i][j]['society']), end=' ')
-                print('数学：' + str(py_setting.best_individuals[i][j]['mathematics']), end=' ')
-                print('理科：' + str(py_setting.best_individuals[i][j]['science']), end=' ')
-                print('英語：' + str(py_setting.best_individuals[i][j]['english']), end=' ')
-                print('偏差値：' + str(py_setting.best_individuals[i][j]['deviation_value']), end='      ')
-                print('【人数】' + str(len(py_setting.best_individuals[i])) + '人(男子：' + str(men_count) + ', 女子：' + str(wemen_count) + ') ', end='')
-                print('【偏差値の平均】', count/len(py_setting.best_individuals[i]))
+        print('------------------------------------', end='')
+        print('【人数】' + str(len(py_setting.best_individuals[i])) + '人(男子：' + str(men_count) + ', 女子：' + str(wemen_count) + ') ', end='')
+        print('【偏差値の平均】', count_deviation_value/len(py_setting.best_individuals[i]), end='')
+        print('【体力テストの平均】', count_physical_point/len(py_setting.best_individuals[i]))
         print('')
