@@ -1,4 +1,5 @@
-#[学籍番号, 名前, 点数]
+#ユーザに入力させるデータ
+#仮データ
 list_students = [
     {'students_number':  1, 'gender': 0, 'japanese': 24,'society': 78,'mathematics': 18, 'science': 25,'english': 86, 'deviation_value': None, 'physical_point': 75},
     {'students_number':  2, 'gender': 0, 'japanese': 50,'society': 55,'mathematics': 43, 'science': 32,'english': 36, 'deviation_value': None, 'physical_point': 56},

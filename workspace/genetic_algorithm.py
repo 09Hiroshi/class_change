@@ -23,6 +23,7 @@ def gender_counter(list_studens):
     return count_mens, count_womens
 
 #男女数を均等に各クラスへ振り分ける
+#後で別の関数にまとめる
 def put_students():
     count_mens, count_womens = gender_counter(students_info.list_students)
 
