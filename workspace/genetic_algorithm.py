@@ -23,7 +23,7 @@ def gender_counter(list_studens):
     return count_mens, count_womens
 
 #男女数を均等に各クラスへ振り分ける
-#後で別の関数にまとめる
+#for文を後で別の関数にまとめる
 def put_students():
     count_mens, count_womens = gender_counter(students_info.list_students)
 
@@ -137,6 +137,9 @@ def escape_loop(n):
 #自然淘汰
 
 
+def constraint_gender(compare_student_1, compare_student_2):
+    return compare_student_1['gender'] == compare_student_2['gender']
+
 #交叉
 def crossover():
     random_class = my_function.random_classes() #0~(クラス数-1) 0~5
@@ -146,10 +149,17 @@ def crossover():
     subscript_1 = len(py_setting.list_classes[random_class[0]])
     subscript_2 = len(py_setting.list_classes[random_class[1]])
 
-    random_student_1 = random.randint(0, subscript_1 - 1)
-    random_student_2 = random.randint(0, subscript_2 - 1)
+    #whileの中身を後でリファクタ
+    while True:
+        random_student_1 = random.randint(0, subscript_1 - 1)
+        random_student_2 = random.randint(0, subscript_2 - 1)
 
-    py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2] = py_setting.list_classes[random_class[1]][random_student_2], py_setting.list_classes[random_class[0]][random_student_1] # ランダムで生徒を変更(a,b=b,a)
+        if constraint_gender(py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2]):
+
+            py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2] = py_setting.list_classes[random_class[1]][random_student_2], py_setting.list_classes[random_class[0]][random_student_1]
+            break
+        else:
+            pass
 
 
 #突然変異
