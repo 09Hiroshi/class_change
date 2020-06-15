@@ -15,7 +15,7 @@ students = len(students_info.list_students)
 best_individuals = []
 
 #目的関数の値
-best_score = 1000 #0に近づくほど良い値 初期値を出すとき(初期世代の生成)に初期化するべき？
+best_score = 10^7 #0に近づくほど良い値
 
 
 

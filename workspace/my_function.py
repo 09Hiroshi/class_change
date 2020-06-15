@@ -4,14 +4,14 @@ import students_info
 import random
 
 
-#平均値
+#平均値(偏差値)
 def average_deviation_value():
-    sum_list_math = 0
+    sum_deviation_value = 0
 
     for i in range(len(students_info.list_students)): #生徒数だけ繰り返す
-        sum_list_math += students_info.list_students[i]['deviation_value']
+        sum_deviation_value += students_info.list_students[i]['deviation_value']
 
-    ave_list = sum_list_math / py_setting.students
+    ave_list = sum_deviation_value / py_setting.students
 
     return ave_list
 

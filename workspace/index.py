@@ -33,7 +33,7 @@ def GA():
 
     print('【最終世代】' + '第' + str(generation) + '世代')
     print('【最終目的関数値】' + str(py_setting.best_score))
-    print('【経過時間】' + str(elapsed_time) + ' s')
+    print('【経過時間】' + str(elapsed_time) + '(s)')
 
 if __name__ == '__main__':
     GA()
