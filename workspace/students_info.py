@@ -104,7 +104,7 @@ list_students = [
     {'students_number':101, 'gender': 1, 'japanese': 76,'society': 38,'mathematics': 58, 'science': 46,'english': 32, 'deviation_value': None, 'physical_point': 26, 'piano': 0, 'leader': 0},
     {'students_number':102, 'gender': 1, 'japanese': 50,'society': 54,'mathematics': 76, 'science': 33,'english': 50, 'deviation_value': None, 'physical_point': 34, 'piano': 1, 'leader': 0},
     {'students_number':103, 'gender': 0, 'japanese': 54,'society': 87,'mathematics': 83, 'science': 71,'english': 45, 'deviation_value': None, 'physical_point': 27, 'piano': 0, 'leader': 0},
-    {'students_number':104, 'gender': 1, 'japanese': 64,'society': 42,'mathematics': 61, 'science': 55,'english': 71, 'deviation_value': None, 'physical_point': 64, 'piano': 0, 'leader': 0},
+    {'students_number':104, 'gender': 1, 'japanese': 64,'society': 42,'mathematics': 61, 'science': 55,'english': 71, 'deviation_value': None, 'physical_point': 64, 'piano': 0, 'leader': 1},
 ]
 
 

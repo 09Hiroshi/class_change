@@ -46,6 +46,8 @@ def view_class():
         count_physical_point = 0
         men_count = 0
         wemen_count = 0
+        piano_count = 0
+        leader_count = 0
 
         for j in range(len(py_setting.best_individuals[i])):
             count_deviation_value += py_setting.best_individuals[i][j]['deviation_value']
@@ -57,6 +59,12 @@ def view_class():
                 men_count += 1
             else:
                 print('ERROR')
+
+            if py_setting.best_individuals[i][j]['piano'] == 1:
+                piano_count += 1
+            
+            if py_setting.best_individuals[i][j]['leader'] == 1:
+                leader_count += 1
             
             print('学籍番号：' + str(py_setting.best_individuals[i][j]['students_number']), end=' , ')
             print('性別：' + gender_check(py_setting.best_individuals[i][j]['gender']), end=' , ')
@@ -66,10 +74,14 @@ def view_class():
             print('理科：' + str(py_setting.best_individuals[i][j]['science']), end=' , ')
             print('英語：' + str(py_setting.best_individuals[i][j]['english']), end=' , ')
             print('偏差値：' + str(py_setting.best_individuals[i][j]['deviation_value']), end=' , ')
-            print('体力テスト：' + str(py_setting.best_individuals[i][j]['physical_point']))
+            print('体力テスト：' + str(py_setting.best_individuals[i][j]['physical_point']), end=' , ')
+            print('ピアノ：' + str(py_setting.best_individuals[i][j]['piano']), end=' , ')
+            print('リーダー：' + str(py_setting.best_individuals[i][j]['leader']))
 
         print('------------------------------------', end='')
         print('【人数】' + str(len(py_setting.best_individuals[i])) + '人(男子：' + str(men_count) + ', 女子：' + str(wemen_count) + ') ', end='')
         print('【偏差値の平均】', count_deviation_value/len(py_setting.best_individuals[i]), end='')
-        print('【体力テストの平均】', count_physical_point/len(py_setting.best_individuals[i]))
+        print('【体力テストの平均】', count_physical_point/len(py_setting.best_individuals[i]), end='')
+        print('【ピアノ】' + str(piano_count) + '人', end='')
+        print('【リーダー】' + str(leader_count) + '人')
         print('')

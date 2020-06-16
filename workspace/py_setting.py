@@ -30,6 +30,44 @@ def gender_check(check):
     else:
         count_mens += 1
 
+#ピアノカウンター
+def piano_counter():
+    piano_count = 0
+    for i in students_info.list_students:
+        if i['piano'] == 1:
+            piano_count += 1
+    return piano_count
+
+#ピアノの各クラスにおける最小値,最大値
+piano_min = None
+piano_max = None
+
+if piano_counter() % classes == 0:
+    piano_min = piano_counter() / classes
+    piano_max = piano_counter() / classes
+else:
+    piano_min = int(piano_counter() / classes)
+    piano_max = int(piano_counter() / classes) + 1
+
+#リーダーカウンター
+def leader_counter():
+    leader_count = 0
+    for i in students_info.list_students:
+        if i['leader'] == 1:
+            leader_count += 1
+    return leader_count
+
+#リーダーの各クラスにおける最小値,最大値
+leader_min = None
+leader_max = None
+
+if leader_counter() % classes == 0:
+    leader_min = leader_counter() / classes
+    leader_max = leader_counter() / classes
+else:
+    leader_min = int(leader_counter() / classes)
+    leader_max = int(leader_counter() / classes) + 1
+
 #各教科の合計
 japanese_scores = []
 society_scores = []
