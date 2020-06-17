@@ -166,10 +166,83 @@ def flatten_piano():
 
             exchange_piano(piano_under_list, piano_over_list)
 
+#リーダーが多いクラスと少ないクラスの生徒を交換
+def exchange_leader(leader_under_list, leader_over_list):
+    gender_of_over = None
+
+    for i in range(len(leader_over_list)):
+        if leader_over_list[i]['leader'] == 1 and leader_over_list[i]['piano'] == 0:
+            gender_of_over = leader_over_list[i]['gender']
+            tmp = leader_over_list.pop(i)
+            leader_under_list.append(tmp)
+            break
+
+    for i in range(len(leader_under_list)):
+        if leader_under_list[i]['piano'] == 0 and leader_under_list[i]['gender'] == gender_of_over and leader_under_list[i]['piano'] == 0:
+            tmp = leader_under_list.pop(i)
+            leader_over_list.append(tmp)
+            break
+
+#リーダーをフラットに
+def flatten_leader():
+    while True:
+        leader_under_list = []
+        leader_over_list = []
+
+        for i in py_setting.list_classes:
+            leader_count = 0
+            for j in i:
+                if j['leader'] == 1:
+                    leader_count += 1
+            if leader_count < py_setting.leader_min:
+                leader_under_list = i
+                break
+
+        for i in py_setting.list_classes:
+            leader_count = 0
+            for j in i:
+                if j['leader'] == 1:
+                    leader_count += 1
+            if leader_count > py_setting.leader_max:
+                leader_over_list = i
+                break
+
+        if leader_under_list == [] and leader_over_list == []:
+            break
+
+        elif leader_under_list != [] and leader_over_list != []:
+
+            exchange_leader(leader_under_list, leader_over_list)
+
+        elif leader_under_list == [] and leader_over_list != []:
+            for i in py_setting.list_classes:
+                leader_count = 0
+                for j in i:
+                    if j['leader'] == 1:
+                        leader_count += 1
+                if leader_count == py_setting.leader_min:
+                    leader_under_list = i
+                    break
+
+            exchange_leader(leader_under_list, leader_over_list)
+        
+        elif leader_under_list != [] and leader_over_list == []:
+            for i in py_setting.list_classes:
+                leader_count = 0
+                for j in i:
+                    if j['leader'] == 1:
+                        leader_count += 1
+                if leader_count == py_setting.leader_max:
+                    leader_over_list = i
+                    break
+
+            exchange_leader(leader_under_list, leader_over_list)
+
 #初期世代の生成
 def generate():
     put_students()
     flatten_piano()
+    flatten_leader()
 
 
 #目的関数値が何世代変化していないか
@@ -218,6 +291,9 @@ def constraint_gender(compare_student_1, compare_student_2):
 def constraint_piano(compare_student_1, compare_student_2):
     return compare_student_1['piano'] == compare_student_2['piano']
 
+def constraint_leader(compare_student_1, compare_student_2):
+    return compare_student_1['leader'] == compare_student_2['leader']
+
 #交叉
 def crossover():
     random_class = my_function.random_classes() #0~(クラス数-1) 0~5
@@ -234,8 +310,9 @@ def crossover():
 
         bool_gender = constraint_gender(py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2])
         bool_piano = constraint_piano(py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2])
+        bool_leader = constraint_leader(py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2])
 
-        if bool_gender and bool_piano:
+        if bool_gender and bool_piano and bool_leader:
             py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2] = py_setting.list_classes[random_class[1]][random_student_2], py_setting.list_classes[random_class[0]][random_student_1]
             break
         else:
