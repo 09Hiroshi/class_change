@@ -282,9 +282,6 @@ def escape_loop(n):
         return True
 
 
-#自然淘汰
-
-
 def constraint_gender(compare_student_1, compare_student_2):
     return compare_student_1['gender'] == compare_student_2['gender']
 
@@ -317,6 +314,3 @@ def crossover():
             break
         else:
             pass
-
-
-#突然変異
