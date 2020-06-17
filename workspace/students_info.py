@@ -15,7 +15,7 @@ list_students = [
     {'students_number': 12, 'gender': 1, 'japanese': 25,'society': 46,'mathematics': 32, 'science':  8,'english': 23, 'deviation_value': None, 'physical_point': 34, 'piano': 0, 'leader': 0},
     {'students_number': 13, 'gender': 1, 'japanese': 49,'society': 49,'mathematics': 16, 'science': 73,'english': 24, 'deviation_value': None, 'physical_point': 22, 'piano': 0, 'leader': 0},
     {'students_number': 14, 'gender': 0, 'japanese': 22,'society': 52,'mathematics': 73, 'science': 40,'english': 53, 'deviation_value': None, 'physical_point': 28, 'piano': 0, 'leader': 0},
-    {'students_number': 15, 'gender': 0, 'japanese': 82,'society':100,'mathematics': 72, 'science': 86,'english': 80, 'deviation_value': None, 'physical_point': 30, 'piano': 1, 'leader': 1},
+    {'students_number': 15, 'gender': 0, 'japanese': 82,'society':100,'mathematics': 72, 'science': 86,'english': 80, 'deviation_value': None, 'physical_point': 30, 'piano': 1, 'leader': 0},
     {'students_number': 16, 'gender': 1, 'japanese': 28,'society': 82,'mathematics':  8, 'science': 36,'english': 21, 'deviation_value': None, 'physical_point': 53, 'piano': 0, 'leader': 0},
     {'students_number': 17, 'gender': 1, 'japanese': 82,'society': 76,'mathematics': 53, 'science': 60,'english': 55, 'deviation_value': None, 'physical_point': 59, 'piano': 0, 'leader': 0},
     {'students_number': 18, 'gender': 0, 'japanese': 21,'society': 38,'mathematics': 44, 'science': 82,'english': 71, 'deviation_value': None, 'physical_point': 58, 'piano': 0, 'leader': 0},
