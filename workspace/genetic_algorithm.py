@@ -94,12 +94,84 @@ def put_students():
                         count_students += 1
                         break
 
+#「ピアノ＆リーダー」が多いクラスと少ないクラスの生徒を交換
+def exchange_piano_and_leader(under_list, over_list):
+    gender_of_over = None
+
+    for i in range(len(over_list)):
+        if over_list[i]['piano'] == 1 and over_list[i]['leader'] == 1:
+            gender_of_over = over_list[i]['gender']
+            tmp = over_list.pop(i)
+            under_list.append(tmp)
+            break
+
+    for i in range(len(under_list)):
+        if (under_list[i]['piano'] == 0 or under_list[i]['leader'] == 0) and under_list[i]['gender'] == gender_of_over:
+            tmp = under_list.pop(i)
+            over_list.append(tmp)
+            break
+
+#「ピアノ＆リーダー」をフラットに
+def flatten_piano_and_leader():
+    while True:
+        under_list = []
+        over_list = []
+
+        for i in py_setting.list_classes:
+            piano_and_leader_count = 0
+            for j in i:
+                if j['piano'] == 1 and j['leader'] == 1:
+                    piano_and_leader_count += 1
+            if piano_and_leader_count < py_setting.piano_and_leader_min:
+                under_list = i
+                break
+
+        for i in py_setting.list_classes:
+            piano_and_leader_count = 0
+            for j in i:
+                if j['piano'] == 1 and j['leader'] == 1:
+                    piano_and_leader_count += 1
+            if piano_and_leader_count > py_setting.piano_and_leader_max:
+                over_list = i
+                break
+
+        if under_list == [] and over_list == []:
+            break
+
+        elif under_list != [] and over_list != []:
+
+            exchange_piano_and_leader(under_list, over_list)
+
+        elif under_list == [] and over_list != []:
+            for i in py_setting.list_classes:
+                piano_and_leader_count = 0
+                for j in i:
+                    if j['piano'] == 1 and j['leader'] == 1:
+                        piano_and_leader_count += 1
+                if piano_and_leader_count == py_setting.piano_and_leader_min:
+                    under_list = i
+                    break
+
+            exchange_piano_and_leader(under_list, over_list)
+        
+        elif under_list != [] and over_list == []:
+            for i in py_setting.list_classes:
+                piano_and_leader_count = 0
+                for j in i:
+                    if j['piano'] == 1 and j['leader'] == 1:
+                        piano_and_leader_count += 1
+                if piano_and_leader_count == py_setting.piano_and_leader_max:
+                    over_list = i
+                    break
+
+            exchange_piano_and_leader(under_list, over_list)
+
 #ピアノが多いクラスと少ないクラスの生徒を交換
 def exchange_piano(piano_under_list, piano_over_list):
     gender_of_over = None
 
     for i in range(len(piano_over_list)):
-        if piano_over_list[i]['piano'] == 1:
+        if piano_over_list[i]['piano'] == 1 and piano_over_list[i]['leader'] == 0:
             gender_of_over = piano_over_list[i]['gender']
             tmp = piano_over_list.pop(i)
             piano_under_list.append(tmp)
@@ -178,7 +250,7 @@ def exchange_leader(leader_under_list, leader_over_list):
             break
 
     for i in range(len(leader_under_list)):
-        if leader_under_list[i]['piano'] == 0 and leader_under_list[i]['gender'] == gender_of_over and leader_under_list[i]['piano'] == 0:
+        if leader_under_list[i]['leader'] == 0 and leader_under_list[i]['piano'] == 0 and leader_under_list[i]['gender'] == gender_of_over:
             tmp = leader_under_list.pop(i)
             leader_over_list.append(tmp)
             break
@@ -241,6 +313,7 @@ def flatten_leader():
 #初期世代の生成
 def generate():
     put_students()
+    flatten_piano_and_leader()
     flatten_piano()
     flatten_leader()
 
@@ -300,7 +373,6 @@ def crossover():
     subscript_1 = len(py_setting.list_classes[random_class[0]])
     subscript_2 = len(py_setting.list_classes[random_class[1]])
 
-    #whileの中身を後でリファクタ
     while True:
         random_student_1 = random.randint(0, subscript_1 - 1)
         random_student_2 = random.randint(0, subscript_2 - 1)
