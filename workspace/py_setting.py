@@ -30,6 +30,25 @@ def gender_check(check):
     else:
         count_mens += 1
 
+#「ピアノ&リーダー」カウンター
+def piano_and_leader_counter():
+    piano_and_leader_count = 0
+    for i in students_info.list_students:
+        if i['piano'] == 1 and i['leader'] == 1:
+            piano_and_leader_count += 1
+    return piano_and_leader_count
+
+#リーダーの各クラスにおける最小値,最大値
+piano_and_leader_min = None
+piano_and_leader_max = None
+
+if piano_and_leader_counter() % classes == 0:
+    piano_and_leader_min = piano_and_leader_counter() / classes
+    piano_and_leader_max = piano_and_leader_counter() / classes
+else:
+    piano_and_leader_min = int(piano_and_leader_counter() / classes)
+    piano_and_leader_max = int(piano_and_leader_counter() / classes) + 1
+
 #ピアノカウンター
 def piano_counter():
     piano_count = 0
