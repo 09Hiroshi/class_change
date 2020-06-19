@@ -5,7 +5,7 @@ def GA():
     startTime = time.time() #処理前の時刻
 
     genetic_algorithm.generate()
-    genetic_algorithm.evaluation()
+    genetic_algorithm.evaluation(physical_weight=0.2)
 
     print('')
     print('第1世代')
@@ -16,7 +16,7 @@ def GA():
     
     for i in range(2, 1001):
         genetic_algorithm.crossover()
-        genetic_algorithm.evaluation()
+        genetic_algorithm.evaluation(physical_weight=0.2)
 
         generation = i
         print('第' + str(generation) + '世代')
