@@ -4,17 +4,27 @@ import students_info
 import random
 
 
-#平均値(偏差値)
+#偏差値の平均値
 def average_deviation_value():
     sum_deviation_value = 0
 
     for i in range(len(students_info.list_students)): #生徒数だけ繰り返す
         sum_deviation_value += students_info.list_students[i]['deviation_value']
 
-    ave_list = sum_deviation_value / py_setting.students
+    ave_list = sum_deviation_value / len(students_info.list_students)
 
     return ave_list
 
+#体力テストの平均値
+def average_physical_point():
+    sum_physical_point = 0
+
+    for i in range(len(students_info.list_students)): #生徒数だけ繰り返す
+        sum_physical_point += students_info.list_students[i]['physical_point']
+
+    ave_list = sum_physical_point / len(students_info.list_students)
+
+    return ave_list
 
 #クラスをランダムで二つ決定
 def random_classes():

@@ -321,21 +321,29 @@ def generate():
 #目的関数値が何世代変化していないか
 unchanging_count = 0
 #個体の評価
-def evaluation():
+def evaluation(physical_weight):
     global unchanging_count
     
     evaluation_value = 0 #目的関数の値
+    deviation_value_evaluation = 0
+    physical_point_evaluation = 0
 
     #クラス数だけ繰り返す
     for i in range(py_setting.classes): 
         #各クラスの偏差値の合計
         deviation_value_per_class = 0
+        #各クラスの体力テストの合計
+        physical_point_per_class = 0
 
         #各クラスの生徒数だけ繰り返す
         for j in range(len(py_setting.list_classes[i])):
             deviation_value_per_class += py_setting.list_classes[i][j]['deviation_value']
+            physical_point_per_class += py_setting.list_classes[i][j]['physical_point']
 
-        evaluation_value += abs(deviation_value_per_class / len(py_setting.list_classes[i]) - my_function.average_deviation_value())
+        deviation_value_evaluation += abs(deviation_value_per_class / len(py_setting.list_classes[i]) - my_function.average_deviation_value())
+        physical_point_evaluation += abs(physical_point_per_class / len(py_setting.list_classes[i]) - my_function.average_physical_point())
+
+    evaluation_value = deviation_value_evaluation + (physical_point_evaluation * physical_weight)
 
     if evaluation_value < py_setting.best_score:
         py_setting.best_score = evaluation_value

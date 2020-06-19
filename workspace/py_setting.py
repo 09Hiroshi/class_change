@@ -8,9 +8,6 @@ list_classes = []
 for _ in range(classes):
     list_classes.append([])
 
-#生徒数
-students = len(students_info.list_students)
-
 #目的関数が最低値の時のリスト
 best_individuals = []
 
