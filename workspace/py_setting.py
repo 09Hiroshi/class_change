@@ -12,7 +12,7 @@ for _ in range(classes):
 best_individuals = []
 
 #目的関数の値
-best_score = 10^7 #0に近づくほど良い値
+best_score = 10 ** 7 #0に近づくほど良い値
 
 
 
