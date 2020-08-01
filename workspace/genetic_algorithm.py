@@ -374,14 +374,15 @@ def constraint_leader(compare_student_1, compare_student_2):
 
 #交叉
 def crossover():
-    random_class = my_function.random_classes() #0~(クラス数-1) 0~5
+    random_class = my_function.random_classes() #0~(クラス数-1)
 
     py_setting.list_classes = deepcopy(py_setting.best_individuals)
 
     subscript_1 = len(py_setting.list_classes[random_class[0]])
     subscript_2 = len(py_setting.list_classes[random_class[1]])
 
-    while True:
+    count = 0
+    while count < 10:
         random_student_1 = random.randint(0, subscript_1 - 1)
         random_student_2 = random.randint(0, subscript_2 - 1)
 
@@ -393,4 +394,5 @@ def crossover():
             py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2] = py_setting.list_classes[random_class[1]][random_student_2], py_setting.list_classes[random_class[0]][random_student_1]
             break
         else:
+            count += 1
             pass
