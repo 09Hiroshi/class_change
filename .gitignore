@@ -2,3 +2,4 @@
 __pycache__
 test.py
 test_generate.py
+evaluation_GA.py

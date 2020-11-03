@@ -5,14 +5,14 @@ from copy import deepcopy
 import my_function
 
 #性別カウンター
-def gender_counter(list_studens):
+def gender_counter(list_students):
     count_mens = 0
     count_womens = 0
     
-    for i in range(len(list_studens)):
-        if list_studens[i]['gender'] == 1:
+    for i in range(len(list_students)):
+        if list_students[i]['gender'] == 1:
             count_mens += 1
-        elif list_studens[i]['gender'] == 0:
+        elif list_students[i]['gender'] == 0:
             count_womens += 1
         else:
             print('ERROR')
@@ -374,14 +374,15 @@ def constraint_leader(compare_student_1, compare_student_2):
 
 #交叉
 def crossover():
-    random_class = my_function.random_classes() #0~(クラス数-1) 0~5
+    random_class = my_function.random_classes() #0~(クラス数-1)
 
     py_setting.list_classes = deepcopy(py_setting.best_individuals)
 
     subscript_1 = len(py_setting.list_classes[random_class[0]])
     subscript_2 = len(py_setting.list_classes[random_class[1]])
 
-    while True:
+    count = 0
+    while count < 10:
         random_student_1 = random.randint(0, subscript_1 - 1)
         random_student_2 = random.randint(0, subscript_2 - 1)
 
@@ -393,4 +394,5 @@ def crossover():
             py_setting.list_classes[random_class[0]][random_student_1], py_setting.list_classes[random_class[1]][random_student_2] = py_setting.list_classes[random_class[1]][random_student_2], py_setting.list_classes[random_class[0]][random_student_1]
             break
         else:
+            count += 1
             pass
