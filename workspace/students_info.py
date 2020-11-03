@@ -75,9 +75,9 @@ list_students = [
     {'students_number': 72, 'gender': 0, 'japanese': 60,'society': 12,'mathematics': 38, 'science':  8,'english': 51, 'deviation_value': None, 'physical_point': 71, 'piano': 0, 'leader': 0},
     {'students_number': 73, 'gender': 1, 'japanese': 85,'society': 99,'mathematics': 74, 'science': 85,'english': 74, 'deviation_value': None, 'physical_point': 52, 'piano': 0, 'leader': 0},
     {'students_number': 74, 'gender': 1, 'japanese': 52,'society': 40,'mathematics': 58, 'science': 43,'english': 99, 'deviation_value': None, 'physical_point': 66, 'piano': 0, 'leader': 0},
-    {'students_number': 75, 'gender': 0, 'japanese': 61,'society': 62,'mathematics': 37, 'science':  9,'english': 51, 'deviation_value': None, 'physical_point': 25, 'piano': 0, 'leader': 0},
+    {'students_number': 75, 'gender': 0, 'japanese': 61,'society': 62,'mathematics': 37, 'science':  9,'english': 51, 'deviation_value': None, 'physical_point': 25, 'piano': 0, 'leader': 1},
     {'students_number': 76, 'gender': 0, 'japanese': 62,'society': 54,'mathematics': 49, 'science': 59,'english': 62, 'deviation_value': None, 'physical_point': 30, 'piano': 0, 'leader': 0},
-    {'students_number': 77, 'gender': 1, 'japanese': 45,'society': 51,'mathematics': 51, 'science': 60,'english': 65, 'deviation_value': None, 'physical_point': 37, 'piano': 0, 'leader': 0},
+    {'students_number': 77, 'gender': 1, 'japanese': 45,'society': 51,'mathematics': 51, 'science': 60,'english': 65, 'deviation_value': None, 'physical_point': 37, 'piano': 0, 'leader': 1},
     {'students_number': 78, 'gender': 1, 'japanese': 10,'society': 29,'mathematics': 19, 'science': 17,'english': 29, 'deviation_value': None, 'physical_point': 64, 'piano': 0, 'leader': 0},
     {'students_number': 79, 'gender': 0, 'japanese': 44,'society': 58,'mathematics': 78, 'science': 93,'english': 53, 'deviation_value': None, 'physical_point': 53, 'piano': 0, 'leader': 1},
     {'students_number': 80, 'gender': 1, 'japanese': 55,'society': 93,'mathematics': 55, 'science': 95,'english': 40, 'deviation_value': None, 'physical_point': 59, 'piano': 1, 'leader': 0},
@@ -100,11 +100,7 @@ list_students = [
     {'students_number': 97, 'gender': 0, 'japanese': 74,'society': 49,'mathematics': 17, 'science': 48,'english': 68, 'deviation_value': None, 'physical_point': 55, 'piano': 0, 'leader': 0},
     {'students_number': 98, 'gender': 1, 'japanese': 66,'society': 28,'mathematics': 52, 'science': 26,'english': 44, 'deviation_value': None, 'physical_point': 52, 'piano': 0, 'leader': 0},
     {'students_number': 99, 'gender': 0, 'japanese': 47,'society': 84,'mathematics': 38, 'science': 42,'english': 97, 'deviation_value': None, 'physical_point': 58, 'piano': 0, 'leader': 0},
-    {'students_number':100, 'gender': 1, 'japanese': 83,'society': 96,'mathematics': 60, 'science': 70,'english': 64, 'deviation_value': None, 'physical_point': 60, 'piano': 0, 'leader': 1},
-    {'students_number':101, 'gender': 0, 'japanese': 76,'society': 38,'mathematics': 58, 'science': 46,'english': 32, 'deviation_value': None, 'physical_point': 26, 'piano': 0, 'leader': 1},
-    {'students_number':102, 'gender': 1, 'japanese': 50,'society': 54,'mathematics': 76, 'science': 33,'english': 50, 'deviation_value': None, 'physical_point': 34, 'piano': 0, 'leader': 0},
-    {'students_number':103, 'gender': 0, 'japanese': 54,'society': 87,'mathematics': 83, 'science': 71,'english': 45, 'deviation_value': None, 'physical_point': 27, 'piano': 0, 'leader': 1},
-    {'students_number':104, 'gender': 1, 'japanese': 64,'society': 42,'mathematics': 61, 'science': 55,'english': 71, 'deviation_value': None, 'physical_point': 64, 'piano': 0, 'leader': 0},
+    {'students_number':100, 'gender': 1, 'japanese': 83,'society': 96,'mathematics': 60, 'science': 70,'english': 64, 'deviation_value': None, 'physical_point': 60, 'piano': 0, 'leader': 1}
 ]
 
 list_students_tmp = [
@@ -128,7 +124,6 @@ list_students_tmp = [
     {'students_number': 18, 'gender': 0, 'japanese': 91,'society': 58,'mathematics': 64, 'science': 82,'english': 71, 'deviation_value': None, 'physical_point': 58, 'piano': 0, 'leader': 0},
     {'students_number': 19, 'gender': 0, 'japanese': 15,'society': 20,'mathematics':  0, 'science': 15,'english': 18, 'deviation_value': None, 'physical_point': 58, 'piano': 0, 'leader': 0},
     {'students_number': 20, 'gender': 0, 'japanese': 73,'society': 45,'mathematics': 98, 'science': 84,'english': 79, 'deviation_value': None, 'physical_point': 52, 'piano': 0, 'leader': 0},
-
 ]
 
 

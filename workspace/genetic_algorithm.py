@@ -5,14 +5,14 @@ from copy import deepcopy
 import my_function
 
 #性別カウンター
-def gender_counter(list_studens):
+def gender_counter(list_students):
     count_mens = 0
     count_womens = 0
     
-    for i in range(len(list_studens)):
-        if list_studens[i]['gender'] == 1:
+    for i in range(len(list_students)):
+        if list_students[i]['gender'] == 1:
             count_mens += 1
-        elif list_studens[i]['gender'] == 0:
+        elif list_students[i]['gender'] == 0:
             count_womens += 1
         else:
             print('ERROR')
